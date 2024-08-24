@@ -4,9 +4,9 @@ import { setupKnex } from './database'
 const app = fastify()
 
 app.get('/hello', async () => {
-  const tables = await setupKnex('sqlite_schema').select('*')
+  const transaction = await setupKnex('transactions').select('*')
 
-  return tables
+  return transaction
 })
 
 app
