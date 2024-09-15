@@ -1,13 +1,4 @@
-import fastify from 'fastify'
-import { setupKnex } from './database'
-
-const app = fastify()
-
-app.get('/hello', async () => {
-  const transaction = await setupKnex('transactions').select('*')
-
-  return transaction
-})
+import { app } from './app'
 
 app
   .listen({
